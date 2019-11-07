@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public GameObject[] standardAsteroids = new GameObject[] { };
+    public GameObject starterAsteroid;
+    public GameObject bossAsteroid;
+
+    public float spawnWidth;
+    public float spawnAmount;
+
+    bool[][] pointHasAsteroid = new bool[8][];
+    Vector2[][] positions = new Vector2[8][];
+    int xCoordinate;
+    int yCoordinate;
+
+
     void Start()
     {
-        
+        GenerateBelt();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void GenerateBelt()
     {
         
     }
