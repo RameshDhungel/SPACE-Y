@@ -163,8 +163,11 @@ MonoBehaviour:
     type: 3}
   bossAsteroid: {fileID: 4999253553620488695, guid: 03638163211b8034d8afd30ff27dfa29,
     type: 3}
-  spawnWidth: 0
-  spawnAmount: 0
+  spawnWidth: 4
+  spawnHeight: -4
+  standardAsteroidSpawnAmount: 30
+  rows: 8
+  columns: 8
 --- !u!4 &1327381105
 Transform:
   m_ObjectHideFlags: 0
