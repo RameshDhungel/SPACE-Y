@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7343789836077399516}
   - component: {fileID: 2770382034722112984}
   - component: {fileID: 8786338347225362512}
+  - component: {fileID: -3337251802807311437}
   m_Layer: 0
   m_Name: boss
   m_TagString: Untagged
@@ -116,3 +117,19 @@ PolygonCollider2D:
       - {x: 0.08635946, y: -0.06724194}
       - {x: 0.092258096, y: -0.030451268}
       - {x: 0.0999771, y: 0.03818053}
+--- !u!58 &-3337251802807311437
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999253553620488695}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16
