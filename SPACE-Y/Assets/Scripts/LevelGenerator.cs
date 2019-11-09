@@ -10,11 +10,13 @@ public class LevelGenerator : MonoBehaviour
     public GameObject[] standardAsteroids = new GameObject[] { }; //holds regular asteroid
     public GameObject starterAsteroidPrefab; 
     public GameObject bossAsteroidPrefab;
+    public GameObject[] enemies = new GameObject[] { };
     public GameObject spawnAsteroid;
 
     public float spawnWidth; //distance between asteroid spawn points
     public float spawnHeight; //distance between asteroid spawn points vertically
     public float standardAsteroidSpawnAmount; //amount of asteroids not includoing starter or boss
+    public int enemyCount;
 
     public int rows = 8; //rows of spawn points 
     public int columns = 8; //columns of spawn points
@@ -37,6 +39,7 @@ public class LevelGenerator : MonoBehaviour
         rand = new System.Random();
 
         GenerateBelt();
+        GenerateEnemies();
     }
 
 
@@ -119,4 +122,34 @@ public class LevelGenerator : MonoBehaviour
         generationComplete = true;
 
     }
+
+    void GenerateEnemies()
+    {
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        List<bool> pointHasEnemy = new List<bool>();
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            pointHasEnemy.Add(false);
+        }
+
+        int spawnedAmount = 0;
+        int selectedSpawnPoint;
+        int selectedEnemy;
+
+        while (spawnedAmount < enemyCount)
+        {
+            selectedSpawnPoint = rand.Next(spawnPoints.Length);
+            selectedEnemy = rand.Next(enemies.Length);
+
+            if (!pointHasEnemy[selectedSpawnPoint])
+            {
+                Instantiate(enemies[selectedEnemy], spawnPoints[selectedSpawnPoint].transform.position, Quaternion.identity);
+                spawnedAmount++;
+                pointHasEnemy[selectedSpawnPoint] = true;
+            }
+        }
+
+    }
+
 }
