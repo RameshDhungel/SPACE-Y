@@ -43,14 +43,18 @@ public class EnemyBehavior : MonoBehaviour
                     Destroy(previousBullet);
                 }
                 GameObject bullet = Instantiate(bulletPrefab, this.gameObject.GetComponent<Transform>());
-                Vector2 direction = new Vector2(player.transform.position.x, player.transform.position.y);
+                bullet.GetComponent<Weapon>().shoot(player);
+                /*
+                Vector2 direction = new Vector2(player.transform.position - transform.position).Normalize;
                 Vector2 enemyPos = new Vector2(transform.position.x, transform.position.y); ;
                 direction.Normalize();
 
-                float rotateAmount = Vector3.Cross(direction, enemyPos).z;
-                bullet.GetComponent<Rigidbody2D>().angularVelocity = -rotateAmount * 1000f;
-                timeCounter = Time.time + waitTime;
-                bullet.GetComponent<Rigidbody2D>().velocity = transform.up = direction * 3000 * Time.fixedDeltaTime;
+                // float rotateAmount = Vector3.Cross(direction, enemyPos).z;
+                bullet.GetComponent<Transform>().rotation = GameObject.Find("EnemySprite").GetComponent<Transform>().rotation;       
+                bullet.GetComponent<Rigidbody2D>().velocity = new Vector2();
+               
+                */
+                timeCounter = Time.time + waitTime;            
                 previousBullet = bullet;
              }
         }
