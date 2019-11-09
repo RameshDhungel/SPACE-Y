@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float moveSpeed = 0.03f;
+    private float moveSpeed = 10f;
     public float width = 15f;
     public float height = 15f;
     private float health;
@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     //private float BomberenemyDistance = 0;
     //private float splitter = 8;
     private float[] movemnetArray = { 10, 0, 8 };
-    private float[] stopmovemnetArray = { 4, 0, 4 };
+    private float[] stopmovemnetArray = { 5, 0, 4 };
     private float rotateAngle;
     Vector2 orbitDirection = new Vector2(0, 0);
     float alpha = 1f;
@@ -45,8 +45,8 @@ public class EnemyMovement : MonoBehaviour
         float distanceBetweenPlayerandEnemy = Mathf.Sqrt(Mathf.Pow(vectorMag.x, 2) + Mathf.Pow(vectorMag.y, 2));
 
 
-        //MoveEnemy(moveDirection, distanceBetweenPlayerandEnemy, movemnetArray[0], stopmovemnetArray[0]);
-        Rotate(width, height);
+        MoveEnemy(moveDirection, distanceBetweenPlayerandEnemy, movemnetArray[0]);
+        //Rotate(width, height);
         
     }
     public void MoveEnemy(Vector2 direction, float distanceBetweenPlayerandEnemy, float enemyDistance)

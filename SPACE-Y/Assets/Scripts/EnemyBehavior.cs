@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    private float enemyShootRange = 6f;
+    private float enemyShootRange = 100f;
     float waitTime = 3.5f;
     float timeCounter = 0f;
     public GameObject bulletPrefab;

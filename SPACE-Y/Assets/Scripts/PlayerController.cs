@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 4;
     public float JumpHeight = 1.2f;
 
-    float gravity = 35;
+   // float gravity = 35;
     bool OnGround = false;
 
 
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if (OnGround == false)
         {
-            rb2d.AddForce(gravDirection * -gravity);
+           // rb2d.AddForce(gravDirection * -gravity);
 
         }
 
@@ -70,27 +70,6 @@ public class PlayerController : MonoBehaviour
         Quaternion toRotation = Quaternion.FromToRotation(transform.up, Groundnormal) * transform.rotation;
         transform.rotation = toRotation;
 
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.transform != Planet.transform)
-        {
-
-            Planet = collision.transform.gameObject;
-
-            Vector3 gravDirection = (transform.position - Planet.transform.position).normalized;
-
-            Quaternion toRotation = Quaternion.FromToRotation(transform.up, gravDirection) * transform.rotation;
-            transform.rotation = toRotation;
-
-            rb2d.velocity = Vector3.zero;
-            rb2d.AddForce(gravDirection * gravity);
-
-
-       
-
-        }
     }
 
     private void FixedUpdate()
