@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb2d;
     public GameObject Planet;
     public GameObject PlayerPlaceholder;
-
+    public LevelGenerator lvelgeneratorsomthing;
 
     public float speed = 4;
     public float JumpHeight = 1.2f;
@@ -20,7 +20,12 @@ public class PlayerController : MonoBehaviour
     Vector3 Groundnormal;
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>(); 
+        rb2d = GetComponent<Rigidbody2D>();
+        lvelgeneratorsomthing = GameObject.FindObjectOfType<LevelGenerator>();
+        while (!lvelgeneratorsomthing.generationComplete)
+        {
+
+        }
     }
     void Update()
     {
