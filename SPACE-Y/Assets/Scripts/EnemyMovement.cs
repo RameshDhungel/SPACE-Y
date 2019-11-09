@@ -42,8 +42,8 @@ public class EnemyMovement : MonoBehaviour
         float distanceBetweenPlayerandEnemy = Mathf.Sqrt(Mathf.Pow(vectorMag.x, 2) + Mathf.Pow(vectorMag.y, 2));
 
 
-        //MoveEnemy(moveDirection, distanceBetweenPlayerandEnemy, movemnetArray[0], stopmovemnetArray[0]);
-        Rotate(5, 5);
+        MoveEnemy(moveDirection, distanceBetweenPlayerandEnemy, movemnetArray[0], stopmovemnetArray[0]);
+       
         
     }
     public void MoveEnemy(Vector2 direction, float distanceBetweenPlayerandEnemy, float enemyDistance)
