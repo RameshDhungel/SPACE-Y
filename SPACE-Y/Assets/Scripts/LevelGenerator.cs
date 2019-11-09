@@ -96,6 +96,8 @@ public class LevelGenerator : MonoBehaviour
         //spawn standard asteroids
         int amountSpawned = 0;
         int whichAsteroid;
+        GameObject currentAsteroid;
+
         while (amountSpawned < standardAsteroidSpawnAmount)
         {
             yCoordinate = rand.Next(rows);
@@ -104,8 +106,9 @@ public class LevelGenerator : MonoBehaviour
 
             if (pointHasAsteroid[yCoordinate][xCoordinate] == false)
             {
-                Instantiate(standardAsteroids[whichAsteroid], positions[yCoordinate][xCoordinate], Quaternion.identity);
-                amountSpawned++;
+                currentAsteroid = Instantiate(standardAsteroids[whichAsteroid], positions[yCoordinate][xCoordinate], Quaternion.identity);
+                currentAsteroid.GetComponent<Transform>().localScale *= 2;
+                amountSpawned++; 
                 pointHasAsteroid[yCoordinate][xCoordinate] = true; //make sure to keep track which positions have asteroid
             }
         }
