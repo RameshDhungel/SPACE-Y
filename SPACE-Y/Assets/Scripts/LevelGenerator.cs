@@ -109,7 +109,7 @@ public class LevelGenerator : MonoBehaviour
             if (pointHasAsteroid[yCoordinate][xCoordinate] == false)
             {
                 currentAsteroid = Instantiate(standardAsteroids[whichAsteroid], positions[yCoordinate][xCoordinate], Quaternion.identity);
-                currentAsteroid.GetComponent<Transform>().localScale *= 2;
+                currentAsteroid.GetComponent<Transform>().localScale *= 10;
                 amountSpawned++; 
                 pointHasAsteroid[yCoordinate][xCoordinate] = true; //make sure to keep track which positions have asteroid
             }

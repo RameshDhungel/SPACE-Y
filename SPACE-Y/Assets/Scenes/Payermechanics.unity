@@ -190,13 +190,25 @@ PrefabInstance:
     - target: {fileID: 928965446364925259, guid: 694851eb3adbb1248a3ed5bcedcab559,
         type: 3}
       propertyPath: spawnWidth
-      value: 8
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 928965446364925259, guid: 694851eb3adbb1248a3ed5bcedcab559,
         type: 3}
       propertyPath: spawnHeight
-      value: -8
+      value: -40
       objectReference: {fileID: 0}
+    - target: {fileID: 928965446364925259, guid: 694851eb3adbb1248a3ed5bcedcab559,
+        type: 3}
+      propertyPath: starterAsteroidPrefab
+      value: 
+      objectReference: {fileID: 7143014054235990039, guid: 68749962cb0b7a841b3c4316282f9926,
+        type: 3}
+    - target: {fileID: 928965446364925259, guid: 694851eb3adbb1248a3ed5bcedcab559,
+        type: 3}
+      propertyPath: bossAsteroidPrefab
+      value: 
+      objectReference: {fileID: 4999253553620488695, guid: 03638163211b8034d8afd30ff27dfa29,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 694851eb3adbb1248a3ed5bcedcab559, type: 3}
 --- !u!1 &150640505
@@ -424,8 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13524b3ee82ce2a46813cd8a55cf6f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Planet: {fileID: 1803452721}
   PlayerPlaceholder: {fileID: 1685747254}
+  lvelgeneratorsomthing: {fileID: 0}
   speed: 20
   JumpHeight: 10
 --- !u!1 &1803452721
@@ -445,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1803452722
 SpriteRenderer:
   m_ObjectHideFlags: 0

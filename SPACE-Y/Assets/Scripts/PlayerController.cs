@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    public GameObject Planet;
+    private GameObject Planet;
     public GameObject PlayerPlaceholder;
     public LevelGenerator lvelgeneratorsomthing;
 
@@ -22,10 +22,14 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         lvelgeneratorsomthing = GameObject.FindObjectOfType<LevelGenerator>();
+        
         while (!lvelgeneratorsomthing.generationComplete)
         {
-
+          
         }
+        transform.position = new Vector2(lvelgeneratorsomthing.spawnAsteroid.transform.position.x, lvelgeneratorsomthing.spawnAsteroid.transform.position.y + 20);
+        Planet = lvelgeneratorsomthing.spawnAsteroid;
+        
     }
     void Update()
     {
