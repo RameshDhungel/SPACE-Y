@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private float moveSpeed = 1f;
+    private float moveSpeed = 10f;
+    public float width = 15f;
+    public float height = 15f;
     private float health;
     private Transform player;
     private Rigidbody2D enemyRigidbody;
@@ -13,10 +15,10 @@ public class EnemyMovement : MonoBehaviour
     //private float BomberenemyDistance = 0;
     //private float splitter = 8;
     private float[] movemnetArray = { 10, 0, 8 };
-    private float[] stopmovemnetArray = { 4, 0, 4 };
+    private float[] stopmovemnetArray = { 5, 0, 4 };
     private float rotateAngle;
     Vector2 orbitDirection = new Vector2(0, 0);
-    float alpha = .003f;
+    float alpha = 1f;
 
     void Start()
     {
@@ -24,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
         Debug.Log(player.name);
         enemyRigidbody = this.GetComponent<Rigidbody2D>();
         Debug.Log(enemyRigidbody.name);
+        //transform.position = new Vector2(10, 10);
         
     }
 
@@ -42,8 +45,8 @@ public class EnemyMovement : MonoBehaviour
         float distanceBetweenPlayerandEnemy = Mathf.Sqrt(Mathf.Pow(vectorMag.x, 2) + Mathf.Pow(vectorMag.y, 2));
 
 
-        MoveEnemy(moveDirection, distanceBetweenPlayerandEnemy, movemnetArray[0], stopmovemnetArray[0]);
-        //Rotate(5, 5);
+        MoveEnemy(moveDirection, distanceBetweenPlayerandEnemy, movemnetArray[0]);
+        //Rotate(width, height);
         
     }
     public void MoveEnemy(Vector2 direction, float distanceBetweenPlayerandEnemy, float enemyDistance)
@@ -63,9 +66,8 @@ public class EnemyMovement : MonoBehaviour
     public void Rotate(float width, float height)
     {
         alpha += moveSpeed;
-        orbitDirection.x = orbitDirection.x + (width * Mathf.Sin(alpha));
-        orbitDirection.y = orbitDirection.y + (width * Mathf.Cos(alpha));
-        transform.position = orbitDirection;
+        transform.position = new Vector2( orbitDirection.x + (width * Mathf.Sin(alpha)), orbitDirection.y + (height * Mathf.Cos(alpha)));
+        
 
     }
 }

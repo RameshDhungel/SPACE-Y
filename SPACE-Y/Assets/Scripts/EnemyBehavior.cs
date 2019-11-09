@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    private float enemyShootRange = 6f;
+    private float enemyShootRange = 100f;
     float waitTime = 3.5f;
     float timeCounter = 0f;
     public GameObject bulletPrefab;
@@ -26,9 +26,9 @@ public class EnemyBehavior : MonoBehaviour
         Vector2 vectorMag = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y);
         float mag = Mathf.Sqrt(Mathf.Pow(vectorMag.x, 2) + Mathf.Pow(vectorMag.y, 2));
 
-        // Shoot(mag,enemyShootRange);
+         Shoot(mag,enemyShootRange);
         //SuicideBomb(mag);
-        Shoot(mag,10);
+       // Shoot(mag,10);
         //Rotate(5, 5);
     }
 

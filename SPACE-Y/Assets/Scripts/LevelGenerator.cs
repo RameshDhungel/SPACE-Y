@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    public bool generationComplete = false;
 
     public GameObject[] standardAsteroids = new GameObject[] { }; //holds regular asteroid
-    public GameObject starterAsteroid; 
-    public GameObject bossAsteroid; 
+    public GameObject starterAsteroidPrefab; 
+    public GameObject bossAsteroidPrefab;
+    public GameObject spawnAsteroid;
 
     public float spawnWidth; //distance between asteroid spawn points
     public float spawnHeight; //distance between asteroid spawn points vertically
@@ -73,7 +75,7 @@ public class LevelGenerator : MonoBehaviour
         //spawn starter asteroid
         yCoordinate = rand.Next(rows);
         xCoordinate = rand.Next(columns);
-        Instantiate(starterAsteroid, positions[yCoordinate][xCoordinate], Quaternion.identity);
+        spawnAsteroid = Instantiate(starterAsteroidPrefab, positions[yCoordinate][xCoordinate], Quaternion.identity);
         pointHasAsteroid[yCoordinate][xCoordinate] = true; //make sure to keep track which positions have asteroid
 
 
@@ -86,7 +88,7 @@ public class LevelGenerator : MonoBehaviour
 
             if (pointHasAsteroid[yCoordinate][xCoordinate] == false)
             {
-                Instantiate(bossAsteroid, positions[yCoordinate][xCoordinate], Quaternion.identity);
+                Instantiate(bossAsteroidPrefab, positions[yCoordinate][xCoordinate], Quaternion.identity);
                 hasSpawnedBossAsteroid = true;
                 pointHasAsteroid[yCoordinate][xCoordinate] = true; //make sure to keep track which positions have asteroid
             }
@@ -107,11 +109,14 @@ public class LevelGenerator : MonoBehaviour
             if (pointHasAsteroid[yCoordinate][xCoordinate] == false)
             {
                 currentAsteroid = Instantiate(standardAsteroids[whichAsteroid], positions[yCoordinate][xCoordinate], Quaternion.identity);
-                currentAsteroid.GetComponent<Transform>().localScale *= 2;
+                currentAsteroid.GetComponent<Transform>().localScale *= 10;
+                currentAsteroid.AddComponent<Gravity>();
                 amountSpawned++; 
                 pointHasAsteroid[yCoordinate][xCoordinate] = true; //make sure to keep track which positions have asteroid
             }
         }
+
+        generationComplete = true;
 
     }
 }

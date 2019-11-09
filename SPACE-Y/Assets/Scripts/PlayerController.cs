@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    public GameObject Planet;
+    private GameObject Planet;
     public GameObject PlayerPlaceholder;
-
+    public LevelGenerator lvelgeneratorsomthing;
 
     public float speed = 4;
     public float JumpHeight = 1.2f;
 
-    float gravity = 100;
+   // float gravity = 35;
     bool OnGround = false;
 
 
@@ -20,7 +20,16 @@ public class PlayerController : MonoBehaviour
     Vector3 Groundnormal;
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>(); 
+        rb2d = GetComponent<Rigidbody2D>();
+        lvelgeneratorsomthing = GameObject.FindObjectOfType<LevelGenerator>();
+        
+        while (!lvelgeneratorsomthing.generationComplete)
+        {
+          
+        }
+        transform.position = new Vector2(lvelgeneratorsomthing.spawnAsteroid.transform.position.x, lvelgeneratorsomthing.spawnAsteroid.transform.position.y + 20);
+        Planet = lvelgeneratorsomthing.spawnAsteroid;
+        
     }
     void Update()
     {
@@ -52,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if (OnGround == false)
         {
-            rb2d.AddForce(gravDirection * -gravity);
+           // rb2d.AddForce(gravDirection * -gravity);
 
         }
 
@@ -67,11 +76,15 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey("d") || Input.GetKey("right"))
         {
-            rb2d.velocity = new Vector2(2, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
         }
         else if (Input.GetKey("a") || Input.GetKey("left"))
         {
-            rb2d.velocity = new Vector2(-2, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
+        }
+        else if (Input.GetKey("w") || Input.GetKey("up"))
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x,JumpHeight);
         }
 
     }
