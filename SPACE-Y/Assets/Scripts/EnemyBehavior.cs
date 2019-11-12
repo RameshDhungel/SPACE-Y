@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    private float enemyShootRange = 100f;
+    private float enemyShootRange = 10f;
     float waitTime = 3.5f;
     float timeCounter = 0f;
     public GameObject bulletPrefab;
@@ -42,7 +42,7 @@ public class EnemyBehavior : MonoBehaviour
                 {
                     Destroy(previousBullet);
                 }
-                GameObject bullet = Instantiate(bulletPrefab, this.gameObject.GetComponent<Transform>());
+                GameObject bullet = Instantiate(bulletPrefab, new Vector3(this.gameObject.GetComponent<Transform>().position.x + 2, this.gameObject.GetComponent<Transform>().position.y, this.gameObject.GetComponent<Transform>().position.z), Quaternion.identity);
                 bullet.GetComponent<Weapon>().shoot(player);
                 /*
                 Vector2 direction = new Vector2(player.transform.position - transform.position).Normalize;
