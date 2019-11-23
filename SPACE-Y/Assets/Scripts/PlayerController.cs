@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
    // float gravity = 35;
     bool OnGround = false;
+    bool LookingLeft = false;
+    bool LookingRight = true;
 
 
     float distanceToGround;
@@ -41,15 +43,36 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("d") || Input.GetKey("right"))
         {
             rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
+           
         }
         else if (Input.GetKey("a") || Input.GetKey("left"))
         {
             rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
+            
         }
         else if (Input.GetKey("w") || Input.GetKey("up"))
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x,JumpHeight);
         }
+        if (LookingRight)
+        {
+            
+            if (Input.GetKey("a"))
+            {
+                LookingRight = false;
+                LookingLeft = true;
+                transform.Rotate(0f, 180f, 0f);
+            }
+        }
+        if (LookingLeft)
+        {
+            if (Input.GetKey("d"))
+            {
+                LookingRight = true;
+                LookingLeft = false;
+                transform.Rotate(0f, 180f, 0f);
+            }
 
+        }
     }
 }
