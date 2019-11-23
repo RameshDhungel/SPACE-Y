@@ -5,6 +5,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     Vector2 direction;
+    GameObject player;
+    PlayerHealth playerHealth;
+
     void Start()
     {
        
