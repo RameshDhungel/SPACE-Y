@@ -145,7 +145,7 @@ public class LevelGenerator : MonoBehaviour
             if (!pointHasEnemy[selectedSpawnPoint])
             {
                 Vector3 point = new Vector3(spawnPoints[selectedSpawnPoint].GetComponent<Transform>().position.x, spawnPoints[selectedSpawnPoint].GetComponent<Transform>().position.y, 0f);
-                Instantiate(enemies[selectedEnemy], point, Quaternion.identity);
+                Instantiate(enemies[selectedEnemy], point, Quaternion.identity);           
                 spawnedAmount++;
                 pointHasEnemy[selectedSpawnPoint] = true;
             }

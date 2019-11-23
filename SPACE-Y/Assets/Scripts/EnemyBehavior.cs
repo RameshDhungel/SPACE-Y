@@ -4,15 +4,50 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    private float enemyShootRange = 10f;
-    float waitTime = 3.5f;
-    float timeCounter = 0f;
     public GameObject bulletPrefab;
     private Transform player;
-    GameObject previousBullet = null;
+    private GameObject previousBullet = null;
+    private Vector2 orbitDirection = new Vector2(0, 0);
+    private float health;
+    private float damage;
+    private float enemyShootRange = 10f;
+    private float waitTime = 3.5f;
+    private float timeCounter = 0f;
+    private float alpha = 0.01f;
     private static int cloneCount = 4;
-    Vector2 orbitDirection = new Vector2(0, 0);
-    float alpha = 0.01f;
+    private bool isBomber = false;
+
+    private void Awake()
+    {
+        string name = this.gameObject.name;
+        if (name.Contains("Shooter"))
+        {
+            health = Random.Range(60, 80);
+            damage = Random.Range(10, 14);
+            enemyShootRange = Random.Range(8, 14);
+            waitTime = Random.Range(2, 3.5f);
+        }
+        else if (name.Contains("Rotater"))
+        {
+            health = Random.Range(50, 60);
+            damage = Random.Range(15, 17);
+            enemyShootRange = Random.Range(8, 14);
+            waitTime = Random.Range(1, 3.5f);       
+        }else if (name.Contains("Bomber"))
+        {
+            damage = Random.Range(20, 25);
+            health = Random.Range(20, 30);
+            isBomber = true;
+        }
+        else if (name.Contains("boss"))
+        {
+            damage = Random.Range(35, 45);
+            health = 400;
+            enemyShootRange = Random.Range(10, 14);
+            waitTime = Random.Range(1, 3.5f);
+        }
+
+    }
 
     void Start()
     {
@@ -26,10 +61,20 @@ public class EnemyBehavior : MonoBehaviour
         Vector2 vectorMag = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y);
         float mag = Mathf.Sqrt(Mathf.Pow(vectorMag.x, 2) + Mathf.Pow(vectorMag.y, 2));
 
+        if (isBomber)
+        {
+            SuicideBomb(mag);
+        }
+        else
+        {
          Shoot(mag,enemyShootRange);
-        //SuicideBomb(mag);
-       // Shoot(mag,10);
-        //Rotate(5, 5);
+        }
+
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+       
     }
 
     public void Shoot(float mag, float enemyShootRange)
@@ -76,19 +121,16 @@ public class EnemyBehavior : MonoBehaviour
            cloneCount-= 1;
         }
     }
-    public void Rotate(float width, float height)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        float X;
-        float Y;
-        X = orbitDirection.x + (width * Mathf.Sin(alpha));
-        Y = orbitDirection.y + (width * Mathf.Cos(alpha));
-        transform.position = new Vector2(X, Y);
-
-        /*
-        orbitDirection.x = orbitDirection.x + (width * Mathf.Sin(alpha));
-        orbitDirection.y = orbitDirection.y + (width * Mathf.Cos(alpha));
-        transform.position = orbitDirection;
-        */
-
+        if (collision.collider.tag == "PlayerWeapon")
+        {
+           // Do taking Damage here
+        }
     }
+    public float DealDamage()
+    {
+        return damage;
+    }
+
 }

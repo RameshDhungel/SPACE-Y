@@ -4,21 +4,46 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private float moveSpeed = 10f;
-    public float width = 15f;
-    public float height = 15f;
-    private float health;
+    private float moveSpeed;
+    public float width = 0;
+    public float height = 0;
+    public float visibleRange;
+    public float stopRange;
+    private float rotateAngle;
+    float alpha = 1f;
+    private bool isRotater = false;
+
     private Transform player;
     private Rigidbody2D enemyRigidbody;
     private Vector2 moveDirection;
-    //private float enemyDistance = 5;
-    //private float BomberenemyDistance = 0;
-    //private float splitter = 8;
-    private float[] movemnetArray = { 10, 0, 8 };
-    private float[] stopmovemnetArray = { 5, 0, 4 };
-    private float rotateAngle;
     Vector2 orbitDirection = new Vector2(0, 0);
-    float alpha = 1f;
+
+    private void Awake()
+    {
+        string name = this.gameObject.name;
+        if (name.Contains("Shooter"))
+        {
+            moveSpeed = Random.Range(5, 7);
+            visibleRange = Random.Range(10, 14);
+            stopRange = Random.Range(3, 7);
+
+        }else if (name.Contains("Bomber"))
+        {
+            moveSpeed = 10f;
+            visibleRange = Random.Range(4, 6);
+            stopRange = 0f;
+        }else if (name.Contains("Rotater"))
+        {
+            moveSpeed = Random.Range(2, 4);
+            width = Random.Range(20, 30);
+            isRotater = true;
+        }else if (name.Contains("boss"))
+        {
+            moveSpeed = 4;
+            visibleRange = 10f;
+            stopRange = 1;
+        }      
+    }
 
     void Start()
     {
@@ -45,8 +70,14 @@ public class EnemyMovement : MonoBehaviour
         float distanceBetweenPlayerandEnemy = Mathf.Sqrt(Mathf.Pow(vectorMag.x, 2) + Mathf.Pow(vectorMag.y, 2));
 
 
-        MoveEnemy(moveDirection, distanceBetweenPlayerandEnemy, movemnetArray[0], movemnetArray[0]);
-        //Rotate(width, height);
+        if (isRotater)
+        {
+            Rotate(width, height);
+        }
+        else
+        {
+            MoveEnemy(moveDirection, distanceBetweenPlayerandEnemy, visibleRange, stopRange);
+        }
         
     }
     public void MoveEnemy(Vector2 direction, float distanceBetweenPlayerandEnemy, float enemyDistance)
