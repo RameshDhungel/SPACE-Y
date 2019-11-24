@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour
 {
-    float gravity = 50;
+    float gravity = 40;
     bool OnGround = false;
     bool enter = false;
 
@@ -17,7 +17,7 @@ public class Gravity : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         this.gameObject.AddComponent<CircleCollider2D>();
-        this.gameObject.GetComponent<CircleCollider2D>().radius = 0.20f;
+        this.gameObject.GetComponent<CircleCollider2D>().radius = 30f;
         this.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
     }
 
