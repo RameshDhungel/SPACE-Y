@@ -16,6 +16,7 @@ public class EnemyBehavior : MonoBehaviour
     private float alpha = 0.01f;
     private static int cloneCount = 4;
     private bool isBomber = false;
+    private GameObject[] bulletArray;
 
     private void Awake()
     {
@@ -55,6 +56,14 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
+    private void Update()
+    {
+        bulletArray = GameObject.FindGameObjectsWithTag("EnemyWeapon"); // Stores all the player bullet in a array
+        if (bulletArray.Length > 10) // This checks if there is more than 15 bullet in the Array
+        {
+            Destroy(bulletArray[0]); // This will delete the oldest bullet so we dont have shit tone of unneeded bullet prefab in hierarchy
+        }
+    }
     private void FixedUpdate()
     {
         
@@ -82,13 +91,10 @@ public class EnemyBehavior : MonoBehaviour
         if (mag < enemyShootRange)
         {
              if (timeCounter < Time.time)
-             {
-                if (previousBullet != null)
-                {
-                    Destroy(previousBullet);
-                }
+             {       
                 GameObject bullet = Instantiate(bulletPrefab, new Vector3(this.gameObject.GetComponent<Transform>().position.x + 2, this.gameObject.GetComponent<Transform>().position.y, this.gameObject.GetComponent<Transform>().position.z), Quaternion.identity);
-                bullet.GetComponent<Weapon>().shoot(player);
+                bullet.GetComponent<Weapon>().Enemyshoot(player);
+                bullet.tag = "EnemyWeapon";
                 /*
                 Vector2 direction = new Vector2(player.transform.position - transform.position).Normalize;
                 Vector2 enemyPos = new Vector2(transform.position.x, transform.position.y); ;
@@ -100,7 +106,7 @@ public class EnemyBehavior : MonoBehaviour
                
                 */
                 timeCounter = Time.time + waitTime;            
-                previousBullet = bullet;
+                
              }
         }
     }
