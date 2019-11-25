@@ -5,18 +5,22 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    private Transform player;
     private GameObject previousBullet = null;
+    private GameObject[] bulletArray;
+    private Transform player;
     private Vector2 orbitDirection = new Vector2(0, 0);
+
     private float health;
-    private float damage;
     private float enemyShootRange = 10f;
     private float waitTime = 3.5f;
     private float timeCounter = 0f;
     private float alpha = 0.01f;
+
+    private int damage;
+
     private static int cloneCount = 4;
+
     private bool isBomber = false;
-    private GameObject[] bulletArray;
 
     private void Awake()
     {
@@ -95,16 +99,7 @@ public class EnemyBehavior : MonoBehaviour
                 GameObject bullet = Instantiate(bulletPrefab, new Vector3(this.gameObject.GetComponent<Transform>().position.x + 2, this.gameObject.GetComponent<Transform>().position.y, this.gameObject.GetComponent<Transform>().position.z), Quaternion.identity);
                 bullet.GetComponent<Weapon>().Enemyshoot(player);
                 bullet.tag = "EnemyWeapon";
-                /*
-                Vector2 direction = new Vector2(player.transform.position - transform.position).Normalize;
-                Vector2 enemyPos = new Vector2(transform.position.x, transform.position.y); ;
-                direction.Normalize();
-
-                // float rotateAmount = Vector3.Cross(direction, enemyPos).z;
-                bullet.GetComponent<Transform>().rotation = GameObject.Find("EnemySprite").GetComponent<Transform>().rotation;       
-                bullet.GetComponent<Rigidbody2D>().velocity = new Vector2();
-               
-                */
+                bullet.GetComponent<Weapon>().SetEnemyObject(this.gameObject); //Finds the weapon script on bullet and sets the enemy GameObject to this enemy Object
                 timeCounter = Time.time + waitTime;            
                 
              }
@@ -129,14 +124,20 @@ public class EnemyBehavior : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "PlayerWeapon")
+        if (collision.collider.tag == "PlayerWeapon")// Checks if the bullet if from player
         {
-           // Do taking Damage here
+            int damage = player.GetComponent<PlayerHealth>().Dealdamage(); // Gets the damage amount from player script
+            TakeDamage(damage); 
+           
         }
     }
-    public float DealDamage()
+    public int DealDamage()
     {
         return damage;
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage; // Deducts Damage
     }
 
 }

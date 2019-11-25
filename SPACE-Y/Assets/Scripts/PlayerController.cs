@@ -25,14 +25,14 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         lvelgeneratorsomthing = GameObject.FindObjectOfType<LevelGenerator>();
-        
+
         while (!lvelgeneratorsomthing.generationComplete)
         {
-          
+
         }
         transform.position = new Vector2(lvelgeneratorsomthing.spawnAsteroid.transform.position.x, lvelgeneratorsomthing.spawnAsteroid.transform.position.y + 20);
         Planet = lvelgeneratorsomthing.spawnAsteroid;
-        
+
     }
     void Update()
     {

@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     GameObject player;
     PlayerHealth playerHealth;
     public float speed = 60f;
+    GameObject enemy;
 
     void Start()
     {
@@ -23,5 +24,13 @@ public class Weapon : MonoBehaviour
     {
         direction = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized * 100;
         this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y);
+    }
+    public void SetEnemyObject(GameObject Enemy) // Sets enemy gameObject to the enemy that is firing the bullet
+    {
+       enemy = Enemy;
+    }
+    public GameObject GetEnemyObject() // Returns the enemy gameObject
+    {
+        return enemy;
     }
 }

@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private float moveSpeed;
-    public float width = 0;
-    public float height = 0;
-    public float visibleRange;
-    public float stopRange;
-    private float rotateAngle;
-    float alpha = 1f;
-    private bool isRotater = false;
-
     private Transform player;
     private Rigidbody2D enemyRigidbody;
-    private Vector2 moveDirection;
-    Vector2 orbitDirection = new Vector2(0, 0);
+    private Vector2 moveDirection; // Direction the enemy will move
+    private Vector2 orbitDirection = new Vector2(0, 0);
+
+    private float moveSpeed; // How fast the enemy will move
+    private float rotateAngle; // How much to rotate enemy to face player
+    private float alpha = 1f;
+    public float width = 0; 
+    public float height = 0;
+    public float visibleRange; // How far enemy can see
+    public float stopRange; // The min range between player and enemy before it stops moving
+
+    private bool isRotater = false; 
 
     private void Awake()
     {
-        string name = this.gameObject.name;
-        if (name.Contains("Shooter"))
+        string name = this.gameObject.name; //Name of the enemy
+        if (name.Contains("Shooter")) // sets attributes for different enemy
         {
             moveSpeed = Random.Range(5, 7);
             visibleRange = Random.Range(10, 14);
@@ -48,9 +49,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        Debug.Log(player.name);
         enemyRigidbody = this.GetComponent<Rigidbody2D>();
-        Debug.Log(enemyRigidbody.name);
         //transform.position = new Vector2(10, 10);
         
     }
@@ -58,19 +57,19 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = player.position - transform.position;
-        rotateAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        enemyRigidbody.rotation = rotateAngle;
-        direction.Normalize();
+        Vector3 direction = player.position - transform.position; // difference between player and enemy
+        rotateAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; //Angle between player and enemy
+        enemyRigidbody.rotation = rotateAngle; // Rotates the enemy towards player
+        direction.Normalize(); // Makes the distance between 1 and -1
         moveDirection = direction;
     }
     private void FixedUpdate()
     {
-        Vector2 vectorMag = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y);
+        Vector2 vectorMag = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y);//diference between player and enemy
         float distanceBetweenPlayerandEnemy = Mathf.Sqrt(Mathf.Pow(vectorMag.x, 2) + Mathf.Pow(vectorMag.y, 2));
 
 
-        if (isRotater)
+        if (isRotater) // checks to see if the enemy is rotater and then calls rotate function
         {
             Rotate(width, height);
         }
