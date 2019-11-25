@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     Vector2 direction;
     GameObject player;
     PlayerHealth playerHealth;
+    public float speed = 60f;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class Weapon : MonoBehaviour
     {
         
     }
-    public void shoot(Transform player)
+    public void Enemyshoot(Transform player)
     {
         direction = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized * 100;
         this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y);

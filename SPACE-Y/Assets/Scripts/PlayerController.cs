@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private GameObject Planet;
     public GameObject PlayerPlaceholder;
     public LevelGenerator lvelgeneratorsomthing;
+    public GameObject bulletPrefab;
 
     public float speed = 4;
     public float JumpHeight = 1.2f;
@@ -74,5 +75,6 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+
     }
 }
