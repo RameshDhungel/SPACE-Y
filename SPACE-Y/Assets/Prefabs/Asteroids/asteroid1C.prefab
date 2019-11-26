@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1863712994430802878
+--- !u!1 &2835975366947349329
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 315415660437926258}
-  m_Layer: 0
-  m_Name: spawn1 (2)
-  m_TagString: SpawnPoint
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &315415660437926258
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863712994430802878}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.138, y: -0.13, z: -2.506245}
-  m_LocalScale: {x: 0.16666667, y: 0.16666667, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7337426429653747589}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3975884453408956364
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3532630787658918654}
+  - component: {fileID: 3092524320655542315}
   m_Layer: 0
   m_Name: spawn1
   m_TagString: SpawnPoint
@@ -46,49 +16,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3532630787658918654
+--- !u!4 &3092524320655542315
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3975884453408956364}
+  m_GameObject: {fileID: 2835975366947349329}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.020000018, y: 0.17700003, z: -2.506245}
-  m_LocalScale: {x: 0.16666667, y: 0.16666667, z: 1}
+  m_LocalPosition: {x: -17.410002, y: 11.969999, z: -2.506245}
+  m_LocalScale: {x: 0.16667, y: 0.16667, z: 1}
   m_Children: []
   m_Father: {fileID: 7337426429653747589}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5411363486719852283
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3032970413693229667}
-  m_Layer: 0
-  m_Name: spawn1 (1)
-  m_TagString: SpawnPoint
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3032970413693229667
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5411363486719852283}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17600001, y: -0.13399999, z: -2.506245}
-  m_LocalScale: {x: 0.16666667, y: 0.16666667, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7337426429653747589}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5464083322601976072
 GameObject:
@@ -101,6 +41,7 @@ GameObject:
   - component: {fileID: 7337426429653747589}
   - component: {fileID: 592429515586932863}
   - component: {fileID: 1450031121894578614}
+  - component: {fileID: 2103388878617814383}
   m_Layer: 0
   m_Name: asteroid1C
   m_TagString: Untagged
@@ -119,9 +60,9 @@ Transform:
   m_LocalPosition: {x: -3.05, y: 0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3532630787658918654}
-  - {fileID: 3032970413693229667}
-  - {fileID: 315415660437926258}
+  - {fileID: 3092524320655542315}
+  - {fileID: 4096724743369168146}
+  - {fileID: 1133161379130798757}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -209,3 +150,126 @@ PolygonCollider2D:
       - {x: 0.08635946, y: -0.06724194}
       - {x: 0.092258096, y: -0.030451268}
       - {x: 0.0999771, y: 0.03818053}
+--- !u!60 &2103388878617814383
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464083322601976072}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 48, y: 48}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 13.4724455, y: -2.9272788}
+      - {x: 14.901572, y: -2.938784}
+      - {x: 14.909248, y: 6.009591}
+      - {x: 13.489618, y: 6.0255094}
+      - {x: 13.487624, y: 7.4394994}
+      - {x: 12.049673, y: 7.4718904}
+      - {x: 12.053078, y: 9.074691}
+      - {x: 10.57618, y: 9.112267}
+      - {x: 10.564062, y: 10.544444}
+      - {x: 7.453342, y: 10.560309}
+      - {x: 7.4594793, y: 12.016745}
+      - {x: -7.4589715, y: 12.024629}
+      - {x: -7.445385, y: 10.567352}
+      - {x: -10.498464, y: 10.601071}
+      - {x: -10.546875, y: 10.59375}
+      - {x: -10.59375, y: 10.546875}
+      - {x: -10.579659, y: 9.15702}
+      - {x: -13.4296875, y: 9.1640625}
+      - {x: -13.4765625, y: 9.1171875}
+      - {x: -13.368403, y: 6.028794}
+      - {x: -18, y: 6.046875}
+      - {x: -18.046875, y: 6}
+      - {x: -18.046875, y: -2.859375}
+      - {x: -16.63656, y: -2.8713222}
+      - {x: -16.489521, y: -7.4185843}
+      - {x: -15.180421, y: -7.459823}
+      - {x: -15.116194, y: -10.566561}
+      - {x: -13.472825, y: -10.579978}
+      - {x: -13.405413, y: -11.985232}
+      - {x: -12.006185, y: -12.032318}
+      - {x: -11.992313, y: -13.446745}
+      - {x: -1.308859, y: -13.461195}
+      - {x: -1.4020112, y: -12.001006}
+      - {x: 6.0838304, y: -12.019886}
+      - {x: 6.027211, y: -10.627121}
+      - {x: 11.9309025, y: -10.580333}
+      - {x: 12.054617, y: -8.914335}
+      - {x: 13.39872, y: -8.929355}
+--- !u!1 &6626593034238893126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1133161379130798757}
+  m_Layer: 0
+  m_Name: spawn1 (2)
+  m_TagString: SpawnPoint
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1133161379130798757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626593034238893126}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.1699998, y: -18.01, z: -2.506245}
+  m_LocalScale: {x: 0.16667, y: 0.16667, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7337426429653747589}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7750111926627038903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4096724743369168146}
+  m_Layer: 0
+  m_Name: spawn1 (1)
+  m_TagString: SpawnPoint
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4096724743369168146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750111926627038903}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.4, y: 11.969999, z: -2.506245}
+  m_LocalScale: {x: 0.16667, y: 0.16667, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7337426429653747589}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
