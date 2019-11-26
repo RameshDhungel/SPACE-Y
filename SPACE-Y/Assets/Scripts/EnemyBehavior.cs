@@ -129,7 +129,8 @@ public class EnemyBehavior : MonoBehaviour
         if (collision.collider.tag == "PlayerWeapon")// Checks if the bullet if from player
         {
             int damage = player.GetComponent<PlayerHealth>().Dealdamage(); // Gets the damage amount from player script
-            TakeDamage(damage); 
+            TakeDamage(damage);
+            Destroy(collision.collider.gameObject);// Destorys bullet once enemy gets hit with it
            
         }
     }

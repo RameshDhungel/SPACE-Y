@@ -48,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             GameObject enemy = collision.collider.GetComponent<Weapon>().GetEnemyObject(); //This find the script Weapon on the bullet and returns the correct enemy object
             TakeDamge(enemy.GetComponent<EnemyBehavior>().DealDamage()); // From the correct enemy it gets its Enemy Behavior script and gets the damage value
+            Destroy(collision.collider.gameObject); // Destorys bullet once it hits the player
         }
     }
     public void TakeDamge (int amount)
