@@ -29,16 +29,19 @@ public class LevelGenerator : MonoBehaviour
     int yCoordinate;
     System.Random rand;
 
-
-    void Start()
+    private void Awake()
     {
-        //initialize lists
         pointHasAsteroid = new List<List<bool>>();
         positions = new List<List<Vector2>>();
 
         rand = new System.Random();
 
         GenerateBelt();
+        
+    }
+    void Start()
+    {
+        //initialize lists
         GenerateEnemies();
     }
 

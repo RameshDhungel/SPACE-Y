@@ -15,6 +15,7 @@ public class EnemyBehavior : MonoBehaviour
     private float waitTime = 3.5f;
     private float timeCounter = 0f;
     private float alpha = 0.01f;
+    float mag;
 
     private int damage;
 
@@ -70,10 +71,11 @@ public class EnemyBehavior : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
-        Vector2 vectorMag = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y);
-        float mag = Mathf.Sqrt(Mathf.Pow(vectorMag.x, 2) + Mathf.Pow(vectorMag.y, 2));
-
+        if (player != null)
+        {
+            Vector2 vectorMag = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y);
+            mag = Mathf.Sqrt(Mathf.Pow(vectorMag.x, 2) + Mathf.Pow(vectorMag.y, 2));
+        }
         if (isBomber)
         {
             SuicideBomb(mag);
