@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,8 +31,12 @@ public class PlayerController : MonoBehaviour
         //{
 
         //}
+        if(SceneManager.GetActiveScene().name == "Level")
+        {
         transform.position = new Vector2(lvelgeneratorsomthing.spawnAsteroid.transform.position.x, lvelgeneratorsomthing.spawnAsteroid.transform.position.y + 20);
         Planet = lvelgeneratorsomthing.spawnAsteroid;
+
+        }
 
     }
     void Update()

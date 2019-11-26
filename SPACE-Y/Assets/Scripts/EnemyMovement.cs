@@ -31,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
         }else if (name.Contains("Bomber"))
         {
             moveSpeed = 10f;
-            visibleRange = Random.Range(4, 6);
+            visibleRange = Random.Range(8, 10);
             stopRange = 0f;
         }else if (name.Contains("Rotater"))
         {
@@ -91,8 +91,10 @@ public class EnemyMovement : MonoBehaviour
     }
     public void MoveEnemy(Vector2 direction, float distanceBetweenPlayerandEnemy, float visibleRange, float stopRange)
     {
+          
         if (distanceBetweenPlayerandEnemy <= visibleRange && stopRange < distanceBetweenPlayerandEnemy)
         {
+           
             enemyRigidbody.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
         }
     }

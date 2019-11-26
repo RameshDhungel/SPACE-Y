@@ -110,8 +110,10 @@ public class EnemyBehavior : MonoBehaviour
 
     public void SuicideBomb(float mag)
     {
-        if(mag <= 1){
-            Destroy(this.gameObject);
+        
+        if (mag <= 2){// Has to be 2 because due to size of player and bomb it takes up 1.27 length
+            player.GetComponent<PlayerHealth>().TakeDamge(damage);// Calls the take damage method in player and sends damage from sucicde Bomb
+            Destroy(this.gameObject);// Destroys the sucide bomb
         }
     }
 
@@ -133,6 +135,7 @@ public class EnemyBehavior : MonoBehaviour
             Destroy(collision.collider.gameObject);// Destorys bullet once enemy gets hit with it
            
         }
+        
     }
     public int DealDamage()
     {

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4428049667325987046}
   - component: {fileID: 4428049667325987047}
-  - component: {fileID: 4428049667325987044}
   - component: {fileID: 2507946068849023558}
   - component: {fileID: 2346251484235490410}
+  - component: {fileID: 4144215361151280913}
   m_Layer: 0
   m_Name: Bomber
   m_TagString: Untagged
@@ -83,27 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4428049667325987044
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4428049667325987042}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 10
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &2507946068849023558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +113,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6982928355249883843, guid: 11155c0dfa0c28148a4d00d8bb0f2117,
     type: 3}
+--- !u!50 &4144215361151280913
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4428049667325987042}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8112260448164957428
 GameObject:
   m_ObjectHideFlags: 0
