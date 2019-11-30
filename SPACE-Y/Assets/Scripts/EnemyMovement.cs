@@ -82,13 +82,6 @@ public class EnemyMovement : MonoBehaviour
         }
         
     }
-    public void MoveEnemy(Vector2 direction, float distanceBetweenPlayerandEnemy, float enemyDistance)
-    {
-        if (distanceBetweenPlayerandEnemy > enemyDistance)
-        {
-            enemyRigidbody.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
-        }
-    }
     public void MoveEnemy(Vector2 direction, float distanceBetweenPlayerandEnemy, float visibleRange, float stopRange)
     {
           

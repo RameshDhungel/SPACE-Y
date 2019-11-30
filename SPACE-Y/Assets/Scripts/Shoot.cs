@@ -49,4 +49,11 @@ public class Shoot : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = direction * speed * Time.fixedDeltaTime;
         bullet.tag = "PlayerWeapon"; //Changes the tag to player weapon so we can compare tag later
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag != "Enemy")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

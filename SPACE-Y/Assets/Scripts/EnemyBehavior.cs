@@ -16,6 +16,7 @@ public class EnemyBehavior : MonoBehaviour
     private float timeCounter = 0f;
     private float alpha = 0.01f;
     float mag;
+    private Color32 bomberRedColor;
 
     private int damage;
 
